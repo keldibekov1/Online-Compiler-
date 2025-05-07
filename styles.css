@@ -1,3 +1,4 @@
+/* Default: Dark Mode */
 body {
     font-family: "Arial", sans-serif;
     text-align: center;
@@ -6,7 +7,6 @@ body {
     margin: 0;
     padding: 0;
 }
-
 
 .container {
     width: 90%;
@@ -18,12 +18,10 @@ body {
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-/* Sarlavha */
 h1 {
     color: #ff79c6;
     font-size: 24px;
 }
-
 
 label, select, textarea, input, button {
     width: 100%;
@@ -32,27 +30,16 @@ label, select, textarea, input, button {
     font-weight: bold;
 }
 
-
-textarea {
-    height: 250px;
-    font-family: monospace;
-    background: #44475a;
-    color: #f8f8f2;
-    padding: 12px;
-    border: 2px solid #6272a4;
-    border-radius: 8px;
-    resize: vertical;
-    overflow: auto;
-    transition: border 0.3s ease;
+#editor {
+    width: 100%;
+    margin: 10px 0;
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: left;
 }
-
-textarea:focus {
-    border-color: #ff79c6;
-    outline: none;
-}
-
 
 input {
+    display: none;
     padding: 12px;
     border: 2px solid #6272a4;
     background: #44475a;
@@ -66,10 +53,9 @@ input:focus {
     outline: none;
 }
 
-
 button {
     padding: 12px;
-    background: #50fa7b;
+    background: #28d854;
     color: #282a36;
     font-weight: bold;
     border: none;
@@ -80,10 +66,9 @@ button {
 }
 
 button:hover {
-    background: #38d774;
+    background: #19d765;
     transform: scale(1.05);
 }
-
 
 pre {
     background: #282a36;
@@ -100,17 +85,112 @@ pre {
     border: 2px solid #6272a4;
 }
 
-
 select {
     padding: 12px;
     background: #44475a;
-    color: #f8f8f2;
+    color: #cfcf89;
     border: 2px solid #6272a4;
     border-radius: 8px;
     cursor: pointer;
 }
 
-
 select:hover {
     border-color: #ffb86c;
 }
+
+/* Spinner style */
+.spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #28d854;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+    margin-left: 10px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+button:disabled {
+    background: #aaa;
+    cursor: not-allowed;
+}
+
+button:disabled:hover {
+    transform: none;
+}
+
+textarea {
+    height: 300px;
+    width: 98%;
+    font-family: "Fira Code", monospace;
+    font-size: 15px;
+    background: #1e1e2e;
+    color: #d4d4d4;
+    padding: 16px;
+    border: 2px solid #3e4451;
+    border-radius: 10px;
+    resize: vertical;
+    overflow: auto;
+    tab-size: 4;
+    line-height: 1.5;
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.5);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+textarea:focus {
+    border-color: #61dafb;
+    outline: none;
+    box-shadow: 0 0 5px #61dafb;
+}
+
+/* Light Mode Styles */
+body.light-mode {
+    background: #f0f0f0;
+    color: #333;
+}
+
+body.light-mode .container {
+    background: #ffffff;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+body.light-mode h1 {
+    color: #007acc;
+}
+
+body.light-mode button {
+    background: #007acc;
+    color: #ffffff;
+}
+
+body.light-mode button:hover {
+    background: #005fa3;
+}
+
+body.light-mode textarea {
+    background: #ffffff;
+    color: #333;
+    border-color: #ccc;
+}
+
+body.light-mode select {
+    background: #ffffff;
+    color: #333;
+    border-color: #ccc;
+}
+
+
+/* Default: Dark Mode Icon Color */
+#themeToggle {
+    color: #f8f8f2;
+  }
+  
+  /* Light Mode Icon Color */
+  body.light-mode #themeToggle {
+    color: #333;
+  }
+  
